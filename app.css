@@ -82,7 +82,8 @@ h1 {
 }
 
 #app-container {
-    /*height: 100vh;*/
+    /*max-height: 100vh;*/
+    min-height: 100vh;
     width: 100vw;
     align-items: stretch;
     background-color: var(--primary-blue);
@@ -141,6 +142,7 @@ button {
 /* Chat */
 
 #chat {
+    /*height: 100vh;*/
     background: white;
     margin: 25px 0;
     padding: 25px 25px;

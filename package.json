@@ -1,0 +1,22 @@
+{
+  "name": "socket_io_chat",
+  "version": "1.0.0",
+  "description": "Realtime chat app whit socket io ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket",
+    "node",
+    "npm",
+    "chat",
+    "realtime"
+  ],
+  "author": "AIR ALPHA",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
