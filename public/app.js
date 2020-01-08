@@ -18,11 +18,30 @@ const loginWindow = document.getElementById('login');
 
 const messages = []; // {author, date, content, type}
 
+var socket = io();
+
+socket.on('message', message => {
+    console.log(message);
+    if(message.type !== messageTypes.LOGIN) {
+        if(message.author === username) {
+            message.type = messageTypes.RIGHT;
+        } else {
+            message.type = messageTypes.LEFT;
+        }
+    }
+
+    messages.push(message);
+    console.log(messages);
+    clearMessages();
+    displayMessages();
+});
+
+
 //Take message and return the correct html result
 const createMessageHTML = message => {
     if(message.type === messageTypes.LOGIN) {
         return `
-            <p class="secondary-text text-center mb-2">${message.author} joined the chat</p>;
+            <p class="secondary-text text-center mb-2">${message.author} joined the chat</p>
         `;
     }
 
@@ -44,6 +63,11 @@ const displayMessages = () => {
         .join('');
 };
 
+//Clear message
+const clearMessages = () => {
+    messageList.innerHTML = '';
+};
+
 //Call function displaymessage
 displayMessages();
 
@@ -55,7 +79,7 @@ loginBtn.addEventListener('click', e => {
     }
     username = usernameInput.value;
     //push message to message array
-    messages.push({
+    sendMessage({
         author: username,
         type: messageTypes.LOGIN
     });
@@ -72,16 +96,23 @@ sendBtn.addEventListener('click', e => {
     if (!messageInput.value) {
         return console.log('Message empty');
     }
+    var today = new Date();
+    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
     const message = {
         author: username,
-        date: new Date(),
+        date: date,
         content: messageInput.value,
         type: messageTypes.RIGHT
     };
 
-    messages.push(message);
+    sendMessage(message);
+
     displayMessages();
 
     messageInput.value = "";
     messageInput.focus();
 });
+
+const sendMessage = message => {
+    socket.emit('message', message);
+};
