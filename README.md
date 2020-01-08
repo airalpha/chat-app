@@ -9,7 +9,7 @@ Clone or download app
 * *cd path/to/app*
 * *npm install*
 * *node server.js*
-
+* *Open browser on localhost:4000*
 # Images
 
 <img src="https://raw.githubusercontent.com/AIRALPHA/chat-app/master/public/images/first.png"
