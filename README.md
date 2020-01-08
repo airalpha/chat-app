@@ -12,9 +12,13 @@ Clone or download app
 
 # Images
 
-![First Screen](https://raw.githubusercontent.com/AIRALPHA/chat-app/master/public/images/first.png)
+<img src="https://raw.githubusercontent.com/AIRALPHA/chat-app/master/public/images/first.png"
+     alt="First screen"
+     style="float: left; margin-right: 10px;" />
 
-![First Screen](https://raw.githubusercontent.com/AIRALPHA/chat-app/master/public/images/second.png)
+<img src="https://raw.githubusercontent.com/AIRALPHA/chat-app/master/public/images/second.png"
+     alt="Second screen"
+     style="float: left; margin-right: 10px;" />
 
 
 
